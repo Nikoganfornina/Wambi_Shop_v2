@@ -14,4 +14,5 @@ class activity_hallshop : AppCompatActivity() {
         setContentView(R.layout.activity_hallshop)
 
     }
+
 }
