@@ -16,7 +16,23 @@ class activity_register : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_register)
 
+        // Encuentra el botón de registro y establece el OnClickListener
+        val botonInicio = findViewById<Button>(R.id.boton_volver_login)
+        botonInicio.setOnClickListener {
+            // Intent para ir a la actividad de registro
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Encuentra el botón de registro y establece el OnClickListener
+        val botonAccederPagina = findViewById<Button>(R.id.acceder_registro)
+        botonAccederPagina.setOnClickListener {
+            // Intent para ir a la actividad de registro
+            val intent = Intent(this, activity_hallshop::class.java)
+            startActivity(intent)
+
+        }
+
+
     }
-
-
 }

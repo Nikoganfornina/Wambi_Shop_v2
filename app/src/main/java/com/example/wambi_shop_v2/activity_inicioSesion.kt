@@ -6,6 +6,8 @@ import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
+/*  TODO PENDIENTE A REVISION */
+
 class activity_inicioSesion {
     class activity_inicioSesion : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
