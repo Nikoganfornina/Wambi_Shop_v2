@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Fondo redondo -->
-    <item>
+
+    <!-- Fondo transparente con tamaño específico -->
+    <item android:width="20dp" android:height="20dp">
         <shape android:shape="oval">
-            <solid android:color="#FFFFFF" />
+            <!-- Fondo transparente -->
+            <solid android:color="@android:color/transparent" />
         </shape>
     </item>
 
-     <item>
+    <!-- Imagen centrada dentro del fondo ovalado -->
+    <item >
         <bitmap
             android:gravity="center"
-            android:src="@drawable/wambilogo" />
+            android:src="@drawable/wambiminilogo" />
     </item>
 </layer-list>
