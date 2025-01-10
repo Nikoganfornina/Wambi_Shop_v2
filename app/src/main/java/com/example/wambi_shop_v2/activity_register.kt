@@ -1,12 +1,14 @@
 package com.example.wambi_shop_v2
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.util.Log
+import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class activity_register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,30 +16,20 @@ class activity_register : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_register)
 
-
-        // Encuentra el botón de registro y establece el OnClickListener
-        val botonInicio = findViewById<Button>(R.id.boton_volver_login)
-        botonInicio.setOnClickListener {
-            // Intent para ir a la actividad de registro
-            val intent = Intent(this, MainActivity::class.java)
-        }
-            startActivity(intent)
-        // Encuentra el botón de registro y establece el OnClickListener
-        botonAccederPagina.setOnClickListener {
-        val botonAccederPagina = findViewById<Button>(R.id.acceder_registro)
-            // Intent para ir a la actividad de registro
-            val intent = Intent(this, activity_hallshop::class.java)
-            startActivity(intent)
-
+        // Configuración para el botón "Volver a Login"
+        findViewById<Button>(R.id.boton_volver_login).setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
+        // Configuración para el botón "Acceder a Registro"
+        findViewById<Button>(R.id.acceder_registro).setOnClickListener {
+            startActivity(Intent(this, activity_hallshop::class.java))
+        }
 
-        val modoInvitadoButton: Button = findViewById(R.id.Modo_Invitado)
-        modoInvitadoButton.setOnClickListener {
-
-            startActivity(intent)
+        // Configuración para el botón "Modo Invitado"
+        findViewById<Button>(R.id.Modo_Invitado).setOnClickListener {
             val intent = Intent(this, activity_hallshop::class.java)
-
+            startActivity(intent)
 
             object : CountDownTimer(10000, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
@@ -46,22 +38,10 @@ class activity_register : AppCompatActivity() {
 
                 override fun onFinish() {
                     Log.d("Countdown", "onFinish called!")
-
-                    Toast.makeText(
-                        this@activity_register,
-                        "Plazo del Modo Activo Terminado XD",
-                        Toast.LENGTH_LONG
-                    ).show()
-
-                    val intent = Intent(applicationContext, MainActivity::class.java)
-                    startActivity(intent)
-
-            }.start()
+                    Toast.makeText(this@activity_register, "Plazo del Modo Activo Terminado XD", Toast.LENGTH_LONG).show()
+                    startActivity(Intent(applicationContext, MainActivity::class.java))
                 }
-
-
+            }.start()
         }
-
     }
-}
 }
