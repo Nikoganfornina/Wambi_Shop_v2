@@ -55,14 +55,14 @@
             android:contentDescription="Heart"
             android:src="@drawable/ic_heartbuttom" />
 
-        <!-- Icono Compartir -->
+        <!-- Icono Compartir
         <ImageView
             android:id="@+id/shareButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Share"
-            android:src="@drawable/ic_sharebuttom" />
+            android:src="@drawable/ic_sharebuttom" /> -->
 
     </LinearLayout>
 
