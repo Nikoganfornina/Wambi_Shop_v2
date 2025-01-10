@@ -283,8 +283,8 @@
 
         <!-- FOOTER COMPLETO  -->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
 
@@ -297,8 +297,6 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main1"
         app:layout_constraintVertical_bias="1.0">
 
@@ -332,6 +330,4 @@
             android:src="@drawable/ic_uservector" />
 
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
