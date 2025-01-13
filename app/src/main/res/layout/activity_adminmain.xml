@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/adminmain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF0F5"
@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.046" />
 
     <Button
-        android:id="@+id/button23"
+        android:id="@+id/buttonAnadir"
         android:layout_width="64dp"
         android:layout_height="53dp"
         android:background="@android:color/transparent"
@@ -81,7 +81,7 @@
         app:layout_constraintVertical_bias="0.26" />
 
     <Button
-        android:id="@+id/button321"
+        android:id="@+id/buttonEliminar"
         android:layout_width="64dp"
         android:layout_height="53dp"
         android:background="@android:color/transparent"
@@ -114,7 +114,7 @@
         app:layout_constraintVertical_bias="0.349" />
 
     <Button
-        android:id="@+id/button41"
+        android:id="@+id/buttonEditar"
         android:layout_width="64dp"
         android:layout_height="53dp"
         android:background="@android:color/transparent"
@@ -142,7 +142,7 @@
         app:layout_constraintVertical_bias="0.752" />
 
     <Button
-        android:id="@+id/desconectarse1"
+        android:id="@+id/desconectarseAdmin"
         android:layout_width="239dp"
         android:layout_height="50dp"
         android:background="@android:color/transparent"

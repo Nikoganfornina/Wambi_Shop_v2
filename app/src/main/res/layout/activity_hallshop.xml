@@ -265,7 +265,7 @@
         </android.widget.HorizontalScrollView>
 
         <ScrollView
-            android:id="@+id/scrollError"
+            android:id="@+id/Scroll"
             android:layout_width="348dp"
             android:layout_height="301dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -276,6 +276,7 @@
             app:layout_constraintVertical_bias="0.797">
 
 
+
         </ScrollView>
 
 
@@ -283,8 +284,8 @@
 
         <!-- FOOTER COMPLETO  -->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
 
@@ -297,29 +298,28 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main1">
+        app:layout_constraintTop_toBottomOf="@+id/main1"
+        app:layout_constraintVertical_bias="1.0">
 
         <!-- Icono Home -->
         <ImageView
             android:id="@+id/homeButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginEnd="50dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Home"
-            android:src="@drawable/ic_home"
-            android:layout_marginEnd="50dp"
-            />
+            android:src="@drawable/ic_home" />
 
         <!-- Icono Cesta de la compra -->
         <ImageView
             android:id="@+id/cartButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginEnd="50dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Cart"
-            android:src="@drawable/ic_cart"
-            android:layout_marginEnd="50dp"/>
+            android:src="@drawable/ic_cart" />
 
         <!-- Icono Perfil -->
         <ImageView
@@ -331,6 +331,4 @@
             android:src="@drawable/ic_uservector" />
 
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

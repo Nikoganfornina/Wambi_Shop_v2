@@ -60,12 +60,24 @@ class Database {
                     $COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
                     $COLUMN_NOMBRE TEXT NOT NULL,
                     $COLUMN_EMAIL TEXT NOT NULL,
+                    $COLUMN_CONTRASENA TEXT NOT NULL,
                     $COLUMN_TELEFONO TEXT
                 );
             """.trimIndent()
             db.execSQL(createTableQuery)
         }
 
+         fun verificarUsuario(email: String, contrasena: String):Boolean{
+
+             val db=this.readableDatabase
+             val query="SELECT email, contrasena FROM usuarios WHERE email = ?"
+             val cursor = db.rawQuery(query, arrayOf(email))
+             var ret=false
+             if(cursor.moveToFirst()) if(cursor.getString(1) == contrasena) ret=true
+             db.close()
+             cursor.close()
+             return ret
+        }
         // Create the orders table
         private fun createPedidosTable(db: SQLiteDatabase) {
             val createTableQuery = """
@@ -150,9 +162,9 @@ class Database {
         // Insert initial users
         private fun insertInitialUsuarios(db: SQLiteDatabase) {
             val insertStatement = """
-        INSERT INTO $TABLE_USUARIOS ($COLUMN_NOMBRE, $COLUMN_EMAIL, $COLUMN_TELEFONO) VALUES
-        ('Juan Pérez', 'juan.perez@mail.com', '123456789'),
-        ('Ana Gómez', 'ana.gomez@mail.com', '987654321');
+        INSERT INTO $TABLE_USUARIOS ($COLUMN_NOMBRE, $COLUMN_EMAIL, $COLUMN_TELEFONO ,  $COLUMN_CONTRASENA ) VALUES
+        ('Juan Pérez', 'juan.perez@mail.com', '123456789', '1234'),
+        ('Ana Gómez', 'ana.gomez@mail.com', '987654321', '1234');
         """.trimIndent()
             db.execSQL(insertStatement)
         }
@@ -177,6 +189,8 @@ class Database {
         const val TABLE_USUARIOS = "usuarios"
         const val COLUMN_EMAIL = "email"
         const val COLUMN_TELEFONO = "telefono"
+        const val COLUMN_CONTRASENA = "contrasena"
+
 
         // Orders Table
         const val TABLE_PEDIDOS = "pedidos"
