@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        // Agregar el OnClickListener al botón
+       /* // Agregar el OnClickListener al botón
         val botonAcceder: Button = findViewById(R.id.boton_acceder) // Obtiene el botón por su ID
         botonAcceder.setOnClickListener {
             // Muestra un Toast para verificar que el botón funciona
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 .create()
                 .show()
 
-        }
+        }*/
 
         // Ajustar el padding de la vista para los márgenes del sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.InicioApp)) { v, insets ->
@@ -41,27 +42,35 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Encuentra el botón de registro y establece el OnClickListener
+
         val botonRegistro = findViewById<Button>(R.id.boton_registro)
         botonRegistro.setOnClickListener {
-            // Intent para ir a la actividad de registro
-            val intent = Intent(this, activity_register::class.java)
-            startActivity(intent)
-        }
-        // Encuentra el botón de registro y establece el OnClickListener
-        val botonRegistroIr = findViewById<TextView>(R.id.ir_registro)
-        botonRegistroIr.setOnClickListener {
-            // Intent para ir a la actividad de registro
+
             val intent = Intent(this, activity_register::class.java)
             startActivity(intent)
         }
 
-        // Encuentra el botón de registro y establece el OnClickListener
+        val botonRegistroIr = findViewById<TextView>(R.id.ir_registro)
+        botonRegistroIr.setOnClickListener {
+
+            val intent = Intent(this, activity_register::class.java)
+            startActivity(intent)
+        }
+
+
         val botonAccederPagina = findViewById<Button>(R.id.boton_acceder)
         botonAccederPagina.setOnClickListener {
-            // Intent para ir a la actividad de registro
-            val intent = Intent(this, activity_hallshop::class.java)
-            startActivity(intent)
+            val botonCorreo = findViewById<EditText?>(R.id.Correo).text.toString()
+            val botonContrasena = findViewById<EditText?>(R.id.Contraseña).text.toString()
+            val db = Database.DBHelper(this)
+            if (db.verificarUsuario(botonCorreo, botonContrasena)){
+                val intent = Intent(this, activity_hallshop::class.java)
+                startActivity(intent)
+
+            }else{
+                Toast.makeText(this,"ERROR",Toast.LENGTH_LONG).show()
+            }
+
         }
 
 
