@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,7 +31,12 @@ class activity_hallshop : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.recycler_productos)
         val layoutManager = GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
-        val adapter = ProductosAdapter(productos)
+
+        var adapter = ProductosAdapter(productos) { producto ->
+            Toast.makeText(this, "Producto clicado: ${producto.nombre}", Toast.LENGTH_SHORT).show()
+
+        }
+
         recyclerView.adapter = adapter
 
         val categoriesBBDD = arrayOf(
@@ -81,6 +87,7 @@ class activity_hallshop : AppCompatActivity() {
                 Toast.makeText(this, "Se han restablecido los productos", Toast.LENGTH_SHORT).show()
             }
         }
+
 
 
 

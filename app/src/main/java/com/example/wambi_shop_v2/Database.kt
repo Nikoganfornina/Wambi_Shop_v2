@@ -195,6 +195,27 @@ class Database {
             return productos
         }
 
+        // Método para obtener un producto por su ID
+        fun getProductById(productId: Int): Producto? {
+            val db = readableDatabase
+            val selectQuery = "SELECT * FROM $TABLE_PRODUCTOS WHERE id = ?"
+            var producto: Producto? = null
+            val cursor = db.rawQuery(selectQuery, arrayOf(productId.toString()))
+
+            if (cursor.moveToFirst()) {
+                producto = Producto(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getDouble(3),
+                    cursor.getInt(4),
+                    cursor.getString(5),
+                    cursor.getString(6)
+                )
+            }
+            cursor.close() // Cerrar el cursor
+            return producto
+        }
         fun getProductInfoCategoria(categoria: String): MutableList<Producto> {
             val db = readableDatabase
             val selectQuery = " SELECT * FROM $TABLE_PRODUCTOS WHERE $COLUMN_CATEGORIA = '$categoria'"

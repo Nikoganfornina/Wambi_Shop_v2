@@ -1,3 +1,4 @@
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,13 +8,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wambi_shop_v2.R
 
-class ProductosAdapter(private var productos: List<Producto>) : RecyclerView.Adapter<ProductosAdapter.ProductoViewHolder>() {
+class ProductosAdapter(private var productos: List<Producto> , private val onProductClick: (Producto) -> Unit)  : RecyclerView.Adapter<ProductosAdapter.ProductoViewHolder>() {
 
     class ProductoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nombre: TextView = view.findViewById(R.id.nombreProducto)
         val precio: TextView = view.findViewById(R.id.precioProducto)
         val imagen: ImageView = view.findViewById(R.id.imagenProducto)
         //val verProducto: Button = view.findViewById(R.id.verProductoButton)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoViewHolder {
@@ -33,11 +35,17 @@ class ProductosAdapter(private var productos: List<Producto>) : RecyclerView.Ada
             // Si no se encuentra la imagen, puedes poner una imagen por defecto
             holder.imagen.setImageResource(R.drawable.ic_error) // Asegúrate de tener una imagen predeterminada
         }
+
+
         // Asume que `imagen` es una URL local o remota; usa Glide o Picasso para cargarla
         //holder.verProducto.setOnClickListener { onVerProductoClick(producto) }
-    }
+        // Agregar clic en la tarjeta completa
+        holder.itemView.setOnClickListener {
+            onProductClick(producto) // Llama al callback con el producto seleccionado
+        }
 
-    override fun getItemCount(): Int = productos.size
+    }
+        override fun getItemCount(): Int = productos.size
 
     // Metodo para actualizar los productos y notificar al adaptador
     fun actualizarProductos(nuevosProductos: List<Producto>, layoutManager: RecyclerView.LayoutManager) {
