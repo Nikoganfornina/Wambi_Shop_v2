@@ -65,21 +65,17 @@ class MainActivity : AppCompatActivity() {
 
 
             if (botonCorreo == "admin" && botonContrasena == "admin") {
-                // Si son correctas, redirigir al panel de administrador
                 val intent = Intent(
                     this,
                     activity_adminmain::class.java
-                )  // Cambia a la actividad que desees
-                startActivity(intent)
+                )
             } else {
-                // Si las credenciales son incorrectas, muestra un mensaje de error
                 val db = Database.DBHelper(this)
                 if (db.verificarUsuario(botonCorreo, botonContrasena)) {
-                    // Si las credenciales son correctas en la base de datos
+
                     val intent = Intent(this, activity_hallshop::class.java)
                     startActivity(intent)
                 } else {
-                    // Si las credenciales no son correctas
                     Toast.makeText(this, "ERROR: Credenciales incorrectas", Toast.LENGTH_LONG)
                         .show()
                 }

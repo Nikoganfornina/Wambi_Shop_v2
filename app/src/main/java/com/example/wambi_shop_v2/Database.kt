@@ -61,7 +61,7 @@ class Database {
             val createTableQuery = """
                 CREATE TABLE IF NOT EXISTS $TABLE_USUARIOS (
                     $COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    $COLUMN_NOMBRE TEXT NOT NULL,
+                    $COLUMN_NOMBRE TEXT ,
                     $COLUMN_EMAIL TEXT NOT NULL,
                     $COLUMN_CONTRASENA TEXT NOT NULL,
                     $COLUMN_TELEFONO TEXT
