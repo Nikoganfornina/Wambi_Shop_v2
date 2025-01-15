@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:id="@+id/main"
     android:background="#FFF0F5"
-    tools:context=".activity_carrito">
+    tools:context=".activity_carrito"
+    android:fitsSystemWindows="true">
 
     <!-- Encabezado -->
 

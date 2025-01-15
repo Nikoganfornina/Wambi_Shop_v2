@@ -8,7 +8,8 @@
     android:background="#FFF0F5"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteX="-2dp"
-    tools:layout_editor_absoluteY="-13dp">
+    tools:layout_editor_absoluteY="-13dp"
+    android:fitsSystemWindows="true">
 
     <TextView
         android:id="@+id/textView"
