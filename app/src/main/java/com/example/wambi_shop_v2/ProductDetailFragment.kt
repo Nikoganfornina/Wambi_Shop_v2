@@ -34,7 +34,7 @@ class ProductDetailFragment : Fragment() {
         return binding.root
     }
 
-    // Método para obtener un producto por ID desde la base de datos
+    // Metodo para obtener un producto por ID desde la base de datos
     private fun getProductById(productId: Int): Producto? {
         val db = DatabaseHelper(requireContext())
         return db.getProductById(productId)
