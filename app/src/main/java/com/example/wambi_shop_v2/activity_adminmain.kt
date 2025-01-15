@@ -43,7 +43,7 @@ class activity_adminmain : AppCompatActivity() {
         // Configurar el botón para eliminar productos
         val botonEliminar = findViewById<Button>(R.id.deleteproductbutton)
         botonEliminar.setOnClickListener {
-            val intent = Intent(this, activity_eliminarproductoadmin::class.java)
+            val intent = Intent(this, ActivityEliminarProductoAdmin::class.java)
             startActivity(intent)
         }
     }
