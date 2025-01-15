@@ -18,6 +18,16 @@
             android:name=".activity_register"
             android:exported="false" />
         <activity
+            android:name=".activity_adminmain"
+            android:exported="false" />
+        <activity
+            android:name=".activity_insertarproductoadmin"
+            android:exported="false" />
+        <activity
+            android:name=".activity_eliminarproductoadmin"
+            android:exported="false" />
+
+        <activity
             android:name=".activity_usuario"
             android:exported="false" />
         <activity

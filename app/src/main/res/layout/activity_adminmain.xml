@@ -12,24 +12,6 @@
 
 
     <TextView
-        android:id="@+id/AnadirProducto1"
-        android:layout_width="417dp"
-        android:layout_height="48dp"
-        android:background="#FFFFFF"
-        android:gravity="start|center_vertical"
-        android:paddingStart="16dp"
-        android:text="Añadir Producto"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
-
-    <TextView
         android:id="@+id/textView"
         android:layout_width="407dp"
         android:layout_height="63dp"
@@ -47,86 +29,34 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.046" />
 
-    <Button
-        android:id="@+id/buttonAnadir"
-        android:layout_width="64dp"
-        android:layout_height="53dp"
-        android:background="@android:color/transparent"
-        android:text=">"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.994"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.169" />
 
-    <TextView
-        android:id="@+id/EliminarProducto1"
-        android:layout_width="417dp"
-        android:layout_height="48dp"
-        android:background="#FFFFFF"
-        android:gravity="start|center_vertical"
-        android:paddingStart="16dp"
-        android:text="Eliminar Producto"
-        android:textColor="@color/black"
-        android:textSize="15sp"
+    <Button
+        android:id="@+id/addproductbutton"
+        android:layout_width="214dp"
+        android:layout_height="81dp"
+        android:backgroundTint="#F67D92"
+        android:text="AÑADIR PRODUCTO"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintVertical_bias="0.295" />
 
     <Button
-        android:id="@+id/buttonEliminar"
-        android:layout_width="64dp"
-        android:layout_height="53dp"
-        android:background="@android:color/transparent"
-        android:text=">"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.994"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.262" />
-
-    <TextView
-        android:id="@+id/EditarProducto1"
-        android:layout_width="417dp"
-        android:layout_height="48dp"
-        android:background="#FFFFFF"
-        android:gravity="start|center_vertical"
-        android:paddingStart="16dp"
-        android:text="Modificar Producto"
-        android:textColor="@color/black"
-        android:textSize="15sp"
+        android:id="@+id/deleteproductbutton"
+        android:layout_width="214dp"
+        android:layout_height="81dp"
+        android:backgroundTint="#F67D92"
+        android:text="ELIMINAR PRODUCTO"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.349" />
-
-    <Button
-        android:id="@+id/buttonEditar"
-        android:layout_width="64dp"
-        android:layout_height="53dp"
-        android:background="@android:color/transparent"
-        android:text=">"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.994"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintVertical_bias="0.469" />
 
     <TextView
         android:id="@+id/nada1"

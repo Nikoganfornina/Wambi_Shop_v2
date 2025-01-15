@@ -20,20 +20,20 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-       /* // Agregar el OnClickListener al botón
-        val botonAcceder: Button = findViewById(R.id.boton_acceder) // Obtiene el botón por su ID
-        botonAcceder.setOnClickListener {
-            // Muestra un Toast para verificar que el botón funciona
-            Toast.makeText(this, "Botón Acceder pulsado", Toast.LENGTH_SHORT).show()
+        /* // Agregar el OnClickListener al botón
+         val botonAcceder: Button = findViewById(R.id.boton_acceder) // Obtiene el botón por su ID
+         botonAcceder.setOnClickListener {
+             // Muestra un Toast para verificar que el botón funciona
+             Toast.makeText(this, "Botón Acceder pulsado", Toast.LENGTH_SHORT).show()
 
 
-            val builder = AlertDialog.Builder(this)
-            builder.setMessage("Botón Acceder pulsado")
-                .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
-                .create()
-                .show()
+             val builder = AlertDialog.Builder(this)
+             builder.setMessage("Botón Acceder pulsado")
+                 .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                 .create()
+                 .show()
 
-        }*/
+         }*/
 
         // Ajustar el padding de la vista para los márgenes del sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.InicioApp)) { v, insets ->
@@ -62,22 +62,29 @@ class MainActivity : AppCompatActivity() {
         botonAccederPagina.setOnClickListener {
             val botonCorreo = findViewById<EditText?>(R.id.Correo).text.toString()
             val botonContrasena = findViewById<EditText?>(R.id.Contraseña).text.toString()
-            val db = Database.DBHelper(this)
-            if (db.verificarUsuario(botonCorreo, botonContrasena)){
-                val intent = Intent(this, activity_hallshop::class.java)
+
+
+            if (botonCorreo == "admin" && botonContrasena == "admin") {
+                // Si son correctas, redirigir al panel de administrador
+                val intent = Intent(
+                    this,
+                    activity_adminmain::class.java
+                )  // Cambia a la actividad que desees
                 startActivity(intent)
+            } else {
+                // Si las credenciales son incorrectas, muestra un mensaje de error
+                val db = Database.DBHelper(this)
+                if (db.verificarUsuario(botonCorreo, botonContrasena)) {
+                    // Si las credenciales son correctas en la base de datos
+                    val intent = Intent(this, activity_hallshop::class.java)
+                    startActivity(intent)
+                } else {
+                    // Si las credenciales no son correctas
+                    Toast.makeText(this, "ERROR: Credenciales incorrectas", Toast.LENGTH_LONG)
+                        .show()
+                }
 
-            }else{
-                Toast.makeText(this,"ERROR",Toast.LENGTH_LONG).show()
             }
-
         }
-
-
-
-
-
-
-
     }
 }

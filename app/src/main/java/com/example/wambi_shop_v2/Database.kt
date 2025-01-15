@@ -1,8 +1,10 @@
 package com.example.wambi_shop_v2
 
 import Producto
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteDatabase.openDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 class Database {
@@ -161,13 +163,15 @@ class Database {
             db.execSQL(insertStatement)
         }
 
+
         // Insert initial users
         private fun insertInitialUsuarios(db: SQLiteDatabase) {
             val insertStatement = """
         INSERT INTO $TABLE_USUARIOS ($COLUMN_NOMBRE, $COLUMN_EMAIL, $COLUMN_TELEFONO ,  $COLUMN_CONTRASENA ) VALUES
         ('Juan Pérez', 'juan.perez@mail.com', '123456789', '1234'),
-        ('Juan Pére', 'a', '123456787', 'a'),
-        ('Ana Gómez', 'ana.gomez@mail.com', '987654321', '1234');
+        ('Ana Gómez', 'ana.gomez@mail.com', '987654321', '1234'),
+        ('ADMIN', 'admin', '111111111', 'admin');
+
         """.trimIndent()
             db.execSQL(insertStatement)
         }
@@ -263,6 +267,39 @@ class Database {
             return productos
         }
 
+        fun openDatabase(context: Context): SQLiteDatabase {
+            val dbHelper = DBHelper(context)
+            return dbHelper.writableDatabase
+        }
+
+        // Método para añadir un producto
+        fun addProducto(
+            context: Context,
+            nombre: String,
+            categoria: String,
+            precio: Double,
+            stock: Int,
+            descripcion: String,
+            imagen: String
+        ): Boolean {
+            if (nombre.isBlank() || categoria.isBlank() || precio <= 0 || stock <= 0 || descripcion.isBlank() || imagen.isBlank()) {
+                throw IllegalArgumentException("Todos los campos son obligatorios y deben ser válidos.")
+            }
+
+            val db = openDatabase(context)
+            val contentValues = ContentValues().apply {
+                put(COLUMN_NOMBRE, nombre)
+                put(COLUMN_CATEGORIA, categoria)
+                put(COLUMN_PRECIO, precio)
+                put(COLUMN_STOCK, stock)
+                put(COLUMN_DESCRIPCION, descripcion)
+                put(COLUMN_IMAGEN, imagen)
+            }
+
+            val result = db.insert(TABLE_PRODUCTOS, null, contentValues)
+            db.close()
+            return result != -1L
+        }
 
 
         // Database constants
