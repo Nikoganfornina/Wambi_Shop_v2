@@ -24,7 +24,7 @@
             android:name=".activity_insertarproductoadmin"
             android:exported="false" />
         <activity
-            android:name=".activity_eliminarproductoadmin"
+            android:name=".ActivityEliminarProductoAdmin"
             android:exported="false" />
 
         <activity

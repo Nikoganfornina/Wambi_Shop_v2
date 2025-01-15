@@ -32,6 +32,11 @@ class activity_insertarproductoadmin : AppCompatActivity() {
         val etDescripcion = findViewById<EditText>(R.id.DescripcionCuadro)
         val etImagen = findViewById<EditText>(R.id.FotoCuadro)
         val btnAddProducto = findViewById<Button>(R.id.button)
+        val btnVolver = findViewById<Button>(R.id.volver)
+
+        btnVolver.setOnClickListener {
+            finish()
+        }
 
         // Instancia de la base de datos
         val database = Database()

@@ -176,6 +176,18 @@ class Database {
             db.execSQL(insertStatement)
         }
 
+        fun deleteProducto(nombre: String): Boolean {
+            val db = this.writableDatabase
+            val selection = "$COLUMN_NOMBRE = ?"  // Aquí aseguramos que estamos usando la columna 'nombre'
+            val selectionArgs = arrayOf(nombre)
+
+            // Intentamos eliminar el producto con el nombre especificado de la tabla de productos
+            val rowsDeleted = db.delete(TABLE_PRODUCTOS, selection, selectionArgs)
+
+            return rowsDeleted > 0  // Si se eliminaron filas, el producto existía y fue eliminado
+        }
+
+
         // Method to get product information through a SELECT
         fun getProductInfo(): MutableList<Producto> {
             val db = readableDatabase
