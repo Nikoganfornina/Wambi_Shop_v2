@@ -15,7 +15,7 @@
 
         android:id="@+id/main1"
         android:layout_width="351dp"
-        android:layout_height="620dp"
+        android:layout_height="800dp"
         android:layout_margin="30dp"
         android:background="#FFF0F5"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -62,7 +62,7 @@
 
 
             <EditText
-                android:id="@+id/search_edit_text"
+                android:id="@+id/buscarProducto"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -75,7 +75,7 @@
                 android:textSize="16sp" />
 
             <ImageView
-                android:id="@+id/search_icon"
+                android:id="@+id/BotonBuscar"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center_vertical"
@@ -106,8 +106,9 @@
                 android:spacing="10dp">
 
                 <!-- Categoría 1: Dulces y postres -->
-
+                <!-- Categoría 1: Dulces y Postres -->
                 <LinearLayout
+                    android:id="@+id/category_dulces_postres"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -115,11 +116,13 @@
                     android:padding="8dp">
 
                     <ImageView
+                        android:id="@+id/image_dulces_postres"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/dulces_horizontalscroll" />
 
                     <TextView
+                        android:id="@+id/text_dulces_postres"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -130,6 +133,7 @@
 
                 <!-- Categoría 2: Frutas y Verduras -->
                 <LinearLayout
+                    android:id="@+id/category_frutas_verduras"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -137,11 +141,13 @@
                     android:padding="8dp">
 
                     <ImageView
+                        android:id="@+id/image_frutas_verduras"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/fruta_horizontalscroll" />
 
                     <TextView
+                        android:id="@+id/text_frutas_verduras"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -152,6 +158,7 @@
 
                 <!-- Categoría 3: Utensilios -->
                 <LinearLayout
+                    android:id="@+id/category_utensilios"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -159,11 +166,13 @@
                     android:padding="8dp">
 
                     <ImageView
+                        android:id="@+id/image_utensilios"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/utensilios_horizontalscroll" />
 
                     <TextView
+                        android:id="@+id/text_utensilios"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -174,6 +183,7 @@
 
                 <!-- Categoría 4: Platos Combinados -->
                 <LinearLayout
+                    android:id="@+id/category_platos_combinados"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -181,12 +191,13 @@
                     android:padding="8dp">
 
                     <ImageView
-
+                        android:id="@+id/image_platos_combinados"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/platos_horizontalscroll" />
 
                     <TextView
+                        android:id="@+id/text_platos_combinados"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -195,8 +206,9 @@
                         android:textSize="14sp" />
                 </LinearLayout>
 
-                <!-- Categoría 5: Salsas y Aceites -->
+                <!-- Categoría 5: Congelados -->
                 <LinearLayout
+                    android:id="@+id/category_congelados"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -204,33 +216,13 @@
                     android:padding="8dp">
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/salsasoja_horizontalscroll" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Salsas y Aceites"
-                        android:textColor="#000000"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <!-- Categoría 6: Congelados -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <ImageView
+                        android:id="@+id/image_congelados"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/congelados_horizontalscroll" />
 
                     <TextView
+                        android:id="@+id/text_congelados"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -239,8 +231,9 @@
                         android:textSize="14sp" />
                 </LinearLayout>
 
-                <!-- Categoría 7: Pastas y Fideos -->
+                <!-- Categoría 6: Pastas y Fideos -->
                 <LinearLayout
+                    android:id="@+id/category_pastas_fideos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -248,11 +241,13 @@
                     android:padding="8dp">
 
                     <ImageView
+                        android:id="@+id/image_pastas_fideos"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/fideos_horizontalscroll" />
 
                     <TextView
+                        android:id="@+id/text_pastas_fideos"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -261,23 +256,28 @@
                         android:textSize="14sp" />
                 </LinearLayout>
 
+
             </LinearLayout>
         </android.widget.HorizontalScrollView>
 
-        <ScrollView
-            android:id="@+id/Scroll"
-            android:layout_width="348dp"
-            android:layout_height="301dp"
+        <LinearLayout
+            android:layout_width="344dp"
+            android:layout_height="450dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-            app:layout_constraintVertical_bias="0.797">
+            app:layout_constraintVertical_bias="0.0"
+            android:orientation="vertical"
+            android:padding="8dp">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_productos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
-
-        </ScrollView>
 
 
         <!-- ____________________________ FINAL DE LA PAGINA ____________________________  -->
