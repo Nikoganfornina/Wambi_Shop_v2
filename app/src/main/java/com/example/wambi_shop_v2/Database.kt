@@ -242,6 +242,8 @@ class Database {
             return productos
         }
 
+
+
         // Database constants
         companion object {
             const val DATABASE_NAME = "productosDB"
@@ -269,7 +271,11 @@ class Database {
             const val COLUMN_CLIENTE_ID = "cliente_id"
             const val COLUMN_FECHA = "fecha"
             const val COLUMN_TOTAL = "total"
+
+            const val a = "prueba"
+
         }
 
+        //Base de datos actulizada por Niko 15/01/2025 Comentar a Lucas
     }
 }
