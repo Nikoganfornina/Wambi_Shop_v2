@@ -23,9 +23,9 @@
             android:id="@+id/imagenProducto"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="centerCrop"
             android:contentDescription="aa"
-            android:src="@drawable/ic_heartbuttom" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_error" />
 
         <!-- Nombre del producto -->
         <TextView

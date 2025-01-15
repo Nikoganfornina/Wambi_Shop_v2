@@ -170,6 +170,7 @@ class Database {
         INSERT INTO $TABLE_USUARIOS ($COLUMN_NOMBRE, $COLUMN_EMAIL, $COLUMN_TELEFONO ,  $COLUMN_CONTRASENA ) VALUES
         ('Juan Pérez', 'juan.perez@mail.com', '123456789', '1234'),
         ('Ana Gómez', 'ana.gomez@mail.com', '987654321', '1234'),
+        ('Testeo', 'a', '000000000', 'a'),
         ('ADMIN', 'admin', '111111111', 'admin');
 
         """.trimIndent()
