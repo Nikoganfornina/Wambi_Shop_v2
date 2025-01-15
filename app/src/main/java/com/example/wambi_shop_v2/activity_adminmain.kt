@@ -1,8 +1,10 @@
+
 package com.example.wambi_shop_v2
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,38 +17,34 @@ class activity_adminmain : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_adminmain)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+
+        // Aplicar los insets directamente al root view de la actividad
+        val rootView = findViewById<View>(android.R.id.content)  // Obtén el root layout
+        ViewCompat.setOnApplyWindowInsetsListener(rootView) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Configurar el botón de desconectar
         val botonDesconectarAdmin = findViewById<Button>(R.id.desconectarseAdmin)
         botonDesconectarAdmin.setOnClickListener {
-
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-
         }
-        val botonAnadir = findViewById<Button>(R.id.buttonAnadir)
-        botonAnadir.setOnClickListener {
 
+        // Configurar el botón para añadir productos
+        val botonAnadir = findViewById<Button>(R.id.addproductbutton)
+        botonAnadir.setOnClickListener {
             val intent = Intent(this, activity_insertarproductoadmin::class.java)
             startActivity(intent)
-
         }
-        val botonEliminar = findViewById<Button>(R.id.buttonEliminar)
-        botonEliminar.setOnClickListener {
 
+        // Configurar el botón para eliminar productos
+        val botonEliminar = findViewById<Button>(R.id.deleteproductbutton)
+        botonEliminar.setOnClickListener {
             val intent = Intent(this, activity_eliminarproductoadmin::class.java)
             startActivity(intent)
-
-        }
-        val botonEditar = findViewById<Button>(R.id.buttonEditar)
-        botonEditar.setOnClickListener {
-
-            val intent = Intent(this, activity_editarproductoadmin::class.java)
-            startActivity(intent)
-
         }
     }
 }
