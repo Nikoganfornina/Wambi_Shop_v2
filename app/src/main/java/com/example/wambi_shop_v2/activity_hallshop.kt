@@ -16,29 +16,31 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class activity_hallshop : AppCompatActivity() {
+
     @SuppressLint("MissingInflatedId")
 
+    // Metodo que se ejecuta cuando se crea la actividad.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_hallshop)
+        enableEdgeToEdge() // Habilita un diseño de borde a borde para la actividad.
+        setContentView(R.layout.activity_hallshop) // Establece el layout de la actividad.
 
-        // Cargar productos desde la base de datos o archivo
-
+        // Cargar productos desde la base de datos o archivo.
         val productos = Database.DBHelper(this).getProductInfo()
 
-        // Configurar RecyclerView
+        // Configuración del RecyclerView para mostrar los productos.
         val recyclerView: RecyclerView = findViewById(R.id.recycler_productos)
-        val layoutManager = GridLayoutManager(this, 2)
+        val layoutManager = GridLayoutManager(this, 2) // Establece el layout con dos columnas.
         recyclerView.layoutManager = layoutManager
 
+        // Configuración del adaptador para el RecyclerView y su acción de clic.
         var adapter = ProductosAdapter(productos) { producto ->
             Toast.makeText(this, "Producto clicado: ${producto.nombre}", Toast.LENGTH_SHORT).show()
-
         }
 
         recyclerView.adapter = adapter
 
+        // Definir las categorías de productos para filtrar.
         val categoriesBBDD = arrayOf(
             "dulces",
             "fruta y verduras",
@@ -56,14 +58,15 @@ class activity_hallshop : AppCompatActivity() {
             findViewById<LinearLayout>(R.id.category_pastas_fideos)
         )
         val db = Database.DBHelper(this)
-        for(i in 0 until categories.size) {
+
+        // Asigna clics en las categorías para filtrar los productos.
+        for (i in 0 until categories.size) {
             categories[i].setOnClickListener {
-                adapter.actualizarProductos(db.getProductInfoCategoria(categoriesBBDD[i]),layoutManager)
+                adapter.actualizarProductos(db.getProductInfoCategoria(categoriesBBDD[i]), layoutManager)
             }
         }
 
-        // Buscar producto
-
+        // Configuración de búsqueda de productos por nombre.
         val buscarProductoEditText = findViewById<EditText>(R.id.buscarProducto)
         val botonBuscarImageView = findViewById<ImageView>(R.id.BotonBuscar)
 
@@ -71,47 +74,40 @@ class activity_hallshop : AppCompatActivity() {
             val query = buscarProductoEditText.text.toString()
 
             if (query.isNotEmpty()) {
-                // Realizamos la búsqueda fonética con el nombre ingresado
+                // Realizamos la búsqueda fonética con el nombre ingresado.
                 val productos = db.searchProductByNameLike(query)
 
                 if (productos.isNotEmpty()) {
-                    // Si encontramos productos, actualizamos el RecyclerView con los productos encontrados
+                    // Si encontramos productos, actualizamos el RecyclerView.
                     adapter.actualizarProductos(productos, layoutManager)
                 } else {
-                    // Si no se encontraron productos, mostramos un mensaje
+                    // Si no se encontraron productos, mostramos un mensaje.
                     Toast.makeText(this, "No se encontró el producto", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                // Si el campo de búsqueda está vacío, también puedes mostrar un mensaje
-                adapter.actualizarProductos(db.getProductInfo(),layoutManager)
+                // Si el campo de búsqueda está vacío, restablecemos los productos y mostramos un mensaje.
+                adapter.actualizarProductos(db.getProductInfo(), layoutManager)
                 Toast.makeText(this, "Se han restablecido los productos", Toast.LENGTH_SHORT).show()
             }
         }
 
-
-
-
+        // Configura las acciones de los botones en la interfaz.
         val botonHome = findViewById<ImageView>(R.id.homeButton)
         botonHome.setOnClickListener {
-
             val intent = Intent(this, activity_hallshop::class.java)
             startActivity(intent)
-
         }
+
         val botonCarrito = findViewById<ImageView>(R.id.cartButton)
         botonCarrito.setOnClickListener {
-
             val intent = Intent(this, activity_carrito::class.java)
             startActivity(intent)
-
         }
 
         val botonPerfil = findViewById<ImageView>(R.id.profileButton)
         botonPerfil.setOnClickListener {
-
             val intent = Intent(this, activity_usuario::class.java)
             startActivity(intent)
-
         }
     }
 }
