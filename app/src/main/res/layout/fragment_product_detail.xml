@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#FFF0F5"
     tools:context=".ProductDetailFragment"
-    android:fitsSystemWindows="true">
+    >
 
     <!-- Barra superior con el título -->
     <LinearLayout
