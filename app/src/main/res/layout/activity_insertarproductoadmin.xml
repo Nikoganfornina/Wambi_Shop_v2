@@ -41,7 +41,7 @@
         app:layout_constraintVertical_bias="0.316" />
 
     <EditText
-        android:id="@+id/nombre1"
+        android:id="@+id/nombreCuadro"
         android:layout_width="227dp"
         android:layout_height="50dp"
         android:background="#bdb9b8"
@@ -53,10 +53,10 @@
         app:layout_constraintHorizontal_bias="0.913"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.195" />
+        app:layout_constraintVertical_bias="0.142" />
 
     <TextView
-        android:id="@+id/nombre11"
+        android:id="@+id/nombreText"
         android:layout_width="78dp"
         android:layout_height="50dp"
         android:text="Nombre"
@@ -64,13 +64,13 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.201" />
+        app:layout_constraintVertical_bias="0.142" />
 
     <TextView
-        android:id="@+id/Descripcion1"
+        android:id="@+id/DescripcionText"
         android:layout_width="108dp"
         android:layout_height="30dp"
         android:text="Descripcion"
@@ -78,13 +78,27 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.294" />
+        app:layout_constraintVertical_bias="0.504" />
+
+    <TextView
+        android:id="@+id/CategoriaText"
+        android:layout_width="108dp"
+        android:layout_height="30dp"
+        android:text="Categoría"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
 
     <EditText
-        android:id="@+id/Descripcion11"
+        android:id="@+id/CategoriaCuadro"
         android:layout_width="227dp"
         android:layout_height="50dp"
         android:background="#bdb9b8"
@@ -96,10 +110,25 @@
         app:layout_constraintHorizontal_bias="0.913"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.281" />
+        app:layout_constraintVertical_bias="0.237" />
+
+    <EditText
+        android:id="@+id/DescripcionCuadro"
+        android:layout_width="227dp"
+        android:layout_height="50dp"
+        android:background="#bdb9b8"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.519" />
 
     <TextView
-        android:id="@+id/Preci1o"
+        android:id="@+id/PrecioText"
         android:layout_width="108dp"
         android:layout_height="30dp"
         android:text="Precio"
@@ -110,10 +139,24 @@
         app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.386" />
+        app:layout_constraintVertical_bias="0.319" />
+
+    <TextView
+        android:id="@+id/StockText"
+        android:layout_width="108dp"
+        android:layout_height="30dp"
+        android:text="Stock"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.41" />
 
     <EditText
-        android:id="@+id/Precio11"
+        android:id="@+id/StockCuadro"
         android:layout_width="227dp"
         android:layout_height="50dp"
         android:background="#bdb9b8"
@@ -125,10 +168,25 @@
         app:layout_constraintHorizontal_bias="0.913"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.374" />
+        app:layout_constraintVertical_bias="0.422" />
+
+    <EditText
+        android:id="@+id/PrecioCuadro"
+        android:layout_width="227dp"
+        android:layout_height="50dp"
+        android:background="#bdb9b8"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.328" />
 
     <TextView
-        android:id="@+id/Fot1o"
+        android:id="@+id/FotoText"
         android:layout_width="108dp"
         android:layout_height="30dp"
         android:text="Foto"
@@ -139,22 +197,22 @@
         app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.466" />
+        app:layout_constraintVertical_bias="0.597" />
 
     <EditText
-        android:id="@+id/Foto11"
-        android:layout_width="167dp"
-        android:layout_height="135dp"
+        android:id="@+id/FotoCuadro"
+        android:layout_width="227dp"
+        android:layout_height="50dp"
         android:background="#bdb9b8"
         android:ems="10"
         android:inputType="text"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.819"
+        app:layout_constraintHorizontal_bias="0.913"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.53" />
+        app:layout_constraintVertical_bias="0.615" />
 
     <Button
         android:id="@+id/button"
