@@ -86,15 +86,15 @@
 
         <android.widget.HorizontalScrollView
             android:id="@+id/horizontalScrollView"
-            android:layout_width="match_parent"
-            android:layout_height="135dp"
+            android:layout_width="350dp"
+            android:layout_height="137dp"
             android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            app:layout_constraintVertical_bias="0.079">
+            app:layout_constraintVertical_bias="0.03">
 
             <!-- LinearLayout para contener las categorías horizontalmente -->
 
@@ -107,6 +107,10 @@
 
                 <!-- Categoría 1: Dulces y postres -->
                 <!-- Categoría 1: Dulces y Postres -->
+
+                <!-- Categoría 2: Frutas y Verduras -->
+
+                <!-- Categoría 3: Utensilios -->
                 <LinearLayout
                     android:id="@+id/category_dulces_postres"
                     android:layout_width="wrap_content"
@@ -131,7 +135,6 @@
                         android:textSize="14sp" />
                 </LinearLayout>
 
-                <!-- Categoría 2: Frutas y Verduras -->
                 <LinearLayout
                     android:id="@+id/category_frutas_verduras"
                     android:layout_width="wrap_content"
@@ -156,7 +159,6 @@
                         android:textSize="14sp" />
                 </LinearLayout>
 
-                <!-- Categoría 3: Utensilios -->
                 <LinearLayout
                     android:id="@+id/category_utensilios"
                     android:layout_width="wrap_content"
