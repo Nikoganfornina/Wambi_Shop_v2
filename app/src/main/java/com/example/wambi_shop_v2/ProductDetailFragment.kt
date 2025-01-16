@@ -1,44 +1,94 @@
 package com.example.wambi_shop_v2
-/*
+
 import Producto
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.wambi_shop_v2.databinding.FragmentProductDetailBinding
+import android.view.animation.AnimationUtils
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
-class ProductDetailFragment : Fragment() {
+class ProductDetailActivity : AppCompatActivity() {
 
-    private lateinit var producto: Producto
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        setContentView(R.layout.fragment_product_detail)
 
-        // Inicializar el binding
-        val binding = FragmentProductDetailBinding.inflate(inflater, container, false)
+        val producto = intent.getParcelableExtra<Producto>("producto")
 
-        // Obtener el id del producto desde los argumentos
-        val productoId = arguments?.getInt("PRODUCTO_ID") ?: return binding.root
+        val productName = findViewById<TextView>(R.id.productName)
+        val productPrice = findViewById<TextView>(R.id.productPrice)
+        val productImage = findViewById<ImageView>(R.id.productImage)
+        val productDescription = findViewById<TextView>(R.id.productDescription)
+        val addToCartButton = findViewById<Button>(R.id.btnAgregarCarrito)
 
-        // Obtener el producto desde la base de datos usando el id
-        producto = getProductById(productoId) ?: return binding.root // Si no encuentra el producto, termina aquí
+        val name = producto?.nombre ?: "Unknown"
+        val price = producto?.precio ?: 0.0
+        val imageResId = intent.getIntExtra("PRODUCT_IMAGE", R.drawable.ic_error)
 
-        // Mostrar la información del producto en los TextViews
-        binding.productName.text = producto.nombre // Nombre del producto
-        binding.productDescription.text = producto.descripcion // Descripción del producto
-        binding.productPrice.text = "$${producto.precio}" // Precio del producto
+        productName.text = name
+        productPrice.text = "$price €"
+        productImage.setImageResource(imageResId)
+        productDescription.text = producto?.descripcion ?: "No tiene descripcion"
 
-        return binding.root
-    }
+        val resId = resources.getIdentifier(producto?.imagen ?: "ic_error", "drawable", packageName)
 
-    // Método para obtener un producto por ID desde la base de datos
-    private fun getProductById(productId: Int): Producto? {
-        val db = DatabaseHelper(requireContext())
-        return db.getProductById(productId)
+        if (resId != 0) {
+            productImage.setImageResource(resId)
+        } else {
+            productImage.setImageResource(R.drawable.ic_error)
+        }
+
+        addToCartButton.setOnClickListener {
+            Toast.makeText(this, "$name added to cart", Toast.LENGTH_SHORT).show()
+            // Logic to add the product to the cart
+        }
+
+        val botonHome = findViewById<ImageView>(R.id.homeButton)
+        botonHome.setOnClickListener {
+
+            val intent = Intent(this, activity_hallshop::class.java)
+            startActivity(intent)
+
+        }
+        val botonCarrito = findViewById<ImageView>(R.id.cartButton)
+        botonCarrito.setOnClickListener {
+
+            val intent = Intent(this, activity_carrito::class.java)
+            startActivity(intent)
+
+        }
+
+        val botonPerfil = findViewById<ImageView>(R.id.profileButton)
+        botonPerfil.setOnClickListener {
+
+            val intent = Intent(this, activity_usuario::class.java)
+            startActivity(intent)
+
+        }
+        val heartIcon = findViewById<ImageView>(R.id.heartIcon)
+
+        // Cargar la animación
+        val heartAnimation = AnimationUtils.loadAnimation(this, R.anim.heart_animation)
+
+        // Hacer que la animación se active cuando el corazón sea clickeado
+        heartIcon.setOnClickListener {
+            // Aplicar la animación
+            heartIcon.startAnimation(heartAnimation)
+
+            // Puedes agregar alguna acción adicional aquí, como cambiar el estado del corazón (favorito o no)
+            Toast.makeText(this, "¡Corazón clickeado!", Toast.LENGTH_SHORT).show()
+        }
+
     }
 }
 
- */
+
+

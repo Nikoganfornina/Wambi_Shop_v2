@@ -62,11 +62,11 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_width="405dp"
+        android:layout_height="183dp"
         android:background="@color/white"
-        android:padding="10dp"
         android:orientation="vertical"
+        android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/footer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="Nombre Grande"
+            android:text="Que cosa?"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -106,6 +106,7 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -114,15 +115,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <Button
-            android:id="@+id/buttonDesconectar"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#F67D92"
-            android:text="Desconectar"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -135,6 +127,7 @@
         android:background="#FFFFFF"
         android:gravity="center"
         android:orientation="horizontal"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -171,4 +164,20 @@
             android:contentDescription="Profile"
             android:src="@drawable/ic_uservector" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonDesconectar"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="#F67D92"
+        android:text="Desconectar"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout5"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,9 +34,6 @@
             android:name=".activity_hallshop"
             android:exported="false" />
         <activity
-            android:name=".activity_register"
-            android:exported="false" />
-        <activity
             android:name=".activity_producto"
             android:exported="false" />
         <activity
@@ -45,9 +42,11 @@
         <activity
             android:name=".activity_carrito"
             android:exported="false" />
+
         <activity
-            android:name=".activity_hallshop"
+            android:name=".ProductDetailActivity"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

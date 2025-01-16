@@ -35,6 +35,10 @@ class activity_hallshop : AppCompatActivity() {
         var adapter = ProductosAdapter(productos) { producto ->
             Toast.makeText(this, "Producto clicado: ${producto.nombre}", Toast.LENGTH_SHORT).show()
 
+            val intent = Intent(this, ProductDetailActivity::class.java)
+            intent.putExtra("producto", producto)
+            startActivity(intent)
+
         }
 
         recyclerView.adapter = adapter
