@@ -31,31 +31,30 @@
 
     <TextView
         android:id="@+id/PrecioText"
-        android:layout_width="129dp"
-        android:layout_height="47dp"
-        android:text="Nombre del Producto :"
+        android:layout_width="235dp"
+        android:layout_height="25dp"
+        android:text="Nombre del Producto"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.217" />
+        app:layout_constraintVertical_bias="0.242" />
 
     <EditText
         android:id="@+id/EliminarCuadro"
-        android:layout_width="227dp"
-        android:layout_height="50dp"
-        android:background="#bdb9b8"
+        android:layout_width="380dp"
+        android:layout_height="51dp"
+        android:background="@drawable/rounded_textfield"
         android:ems="10"
-        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.218" />
+        app:layout_constraintVertical_bias="0.302" />
 
     <Button
         android:id="@+id/deleteproductbutton"
@@ -69,7 +68,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.435" />
+        app:layout_constraintVertical_bias="0.621" />
 
     <Button
         android:id="@+id/volver"

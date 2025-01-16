@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF0F5"
-    tools:context=".ProductDetailFragment"
+    tools:context=".ProductDetailActivity"
     >
 
     <!-- Barra superior con el título -->
@@ -107,17 +107,17 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="406dp"
+        android:layout_width="match_parent"
         android:layout_height="59dp"
         android:background="@color/white"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/footer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.979">
+        app:layout_constraintVertical_bias="0.982">
 
         <!-- Icono Corazón -->
 

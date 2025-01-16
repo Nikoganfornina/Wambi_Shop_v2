@@ -9,7 +9,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-
+        
         vectorDrawables.useSupportLibrary = true
         applicationId = "com.example.wambi_shop_v2"
         minSdk = 24
