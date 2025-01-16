@@ -88,30 +88,13 @@ class activity_register : AppCompatActivity() {
     }
 
     private fun startGuestModeTimer() {
-        val durationInSeconds = 30
-        val handler = Handler(mainLooper)
-        var secondsLeft = durationInSeconds
-
-        val runnable = object : Runnable {
-            override fun run() {
-                if (secondsLeft > 0) {
-                    // Logea el tiempo restante
-                    android.util.Log.d("GuestModeTimer", "Tiempo restante: $secondsLeft segundos")
-                    secondsLeft--
-                    handler.postDelayed(this, 1000)
-                } else {
-                    // Cuando el tiempo termina, redirige al login
-                    Toast.makeText(this@activity_register, "Modo de prueba terminado, regístrese.", Toast.LENGTH_LONG).show()
-                    val intent = Intent(this@activity_register, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-            }
-        }
-
-        // Muestra el Toast inicial y empieza la cuenta regresiva
-        Toast.makeText(this, "Modo invitado activado por $durationInSeconds segundos", Toast.LENGTH_SHORT).show()
-        handler.post(runnable)
+        Toast.makeText(this, "Modo invitado activado por 30 segundos", Toast.LENGTH_SHORT).show()
+        Handler(mainLooper).postDelayed({
+            Toast.makeText(this, "Modo de prueba terminado, regístrese.", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }, 30_000)
     }
 
     override fun onDestroy() {
