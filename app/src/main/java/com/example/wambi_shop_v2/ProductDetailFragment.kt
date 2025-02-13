@@ -26,8 +26,6 @@ class ProductDetailActivity : AppCompatActivity() {
         val productDescription = findViewById<TextView>(R.id.productDescription)
         val addToCartButton = findViewById<Button>(R.id.btnAgregarCarrito)
 
-
-
         val name = producto?.nombre ?: "Unknown"
         val price = producto?.precio ?: 0.0
         val imageResId = intent.getIntExtra("PRODUCT_IMAGE", R.drawable.ic_error)

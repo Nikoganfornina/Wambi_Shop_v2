@@ -1,4 +1,3 @@
-import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -15,9 +14,9 @@ class ProductosAdapter(private var productos: List<Producto> , private val onPro
         val nombre: TextView = view.findViewById(R.id.nombreProducto)
         val precio: TextView = view.findViewById(R.id.precioProducto)
         val imagen: ImageView = view.findViewById(R.id.imagenProducto)
+        //val verProducto: Button = view.findViewById(R.id.verProductoButton)
 
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -46,7 +45,7 @@ class ProductosAdapter(private var productos: List<Producto> , private val onPro
         }
 
     }
-        override fun getItemCount(): Int = productos.size
+    override fun getItemCount(): Int = productos.size
 
     // Metodo para actualizar los productos y notificar al adaptador
     fun actualizarProductos(nuevosProductos: List<Producto>, layoutManager: RecyclerView.LayoutManager) {
@@ -54,9 +53,4 @@ class ProductosAdapter(private var productos: List<Producto> , private val onPro
         notifyDataSetChanged() // Notificar que los datos han cambiado
         layoutManager.scrollToPosition(0)
     }
-
-
-
-
-
 }

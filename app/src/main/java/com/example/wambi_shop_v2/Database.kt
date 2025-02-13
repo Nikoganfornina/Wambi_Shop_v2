@@ -405,7 +405,7 @@ class Database {
 
     companion object {
         const val DATABASE_NAME = "productosDB"
-        const val DATABASE_VERSION = 2
+        const val DATABASE_VERSION = 3
 
         // Tabla PRODUCTOS
         const val TABLE_PRODUCTOS = "productos"
