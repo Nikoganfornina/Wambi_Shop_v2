@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_pago"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF0F5"
+    tools:context=".activity_pago">
+    
+    <!-- Contenedor principal -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_container"
+        android:layout_width="351dp"
+        android:layout_height="800dp"
+        android:layout_margin="30dp"
+        android:background="#FFF0F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144">
+
+        <!-- Título de la pantalla -->
+        <TextView
+            android:id="@+id/tvTituloPago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecciona un método de pago"
+            android:textColor="#F57D91"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Grupo de opciones de pago -->
+        <RadioGroup
+            android:id="@+id/radioGroupPago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/tvTituloPago"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginTop="20dp">
+
+            <RadioButton
+                android:id="@+id/rbPagoContraReembolso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pago Contra Reembolso" />
+
+            <RadioButton
+                android:id="@+id/rbPagoTarjeta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pago con Tarjeta" />
+
+            <RadioButton
+                android:id="@+id/rbPagoPayPal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pago por PayPal" />
+        </RadioGroup>
+
+        <!-- Botón para confirmar el pago -->
+        <Button
+            android:id="@+id/btnConfirmarPago"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirmar Pago"
+            android:textSize="18sp"
+            android:backgroundTint="#F57D91"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/radioGroupPago"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginTop="20dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Footer con botones de navegación -->
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/homeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="50dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Home"
+            android:src="@drawable/ic_home" />
+
+        <ImageView
+            android:id="@+id/cartButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="50dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Cart"
+            android:src="@drawable/ic_cart" />
+
+        <ImageView
+            android:id="@+id/profileButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Profile"
+            android:src="@drawable/ic_uservector" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

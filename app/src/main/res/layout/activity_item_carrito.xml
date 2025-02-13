@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/productImageCart"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="Imagen del producto"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_error" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="96dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingStart="8dp">
+
+        <TextView
+            android:id="@+id/productNameCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del producto"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/productPriceCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0 €"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/productQuantityCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cantidad: 0"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnIncrement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+" />
+
+        <Button
+            android:id="@+id/btnDecrement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="–" />
+    </LinearLayout>
+
+</LinearLayout>

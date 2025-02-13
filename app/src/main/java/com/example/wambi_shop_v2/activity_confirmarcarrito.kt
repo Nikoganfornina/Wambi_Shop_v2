@@ -2,46 +2,56 @@ package com.example.wambi_shop_v2
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class activity_confirmarcarrito : AppCompatActivity() {
 
-    // Metodo que se ejecuta cuando se crea la actividad.
+    private lateinit var radioGroup: RadioGroup
+    private lateinit var btnProcederPago: Button
+    private lateinit var tvTotalPrice: TextView
+    private var carritoItems: ArrayList<CartItem>? = null
+    private var totalPrice: Double = 0.0
+    // Para efectos de simulación, asumimos que el nombre del usuario es "Juan Pérez"
+    private val userName = "Juan Pérez"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge() // Habilita un diseño de borde a borde para la actividad.
-        setContentView(R.layout.activity_confirmarcarrito) // Establece el layout de la actividad.
+        setContentView(R.layout.activity_confirmarcarrito)
 
-        // Ajusta el diseño para que se adapte a las barras del sistema (notificaciones, navegación, etc.).
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        radioGroup = findViewById(R.id.radioGroupPago)
+        btnProcederPago = findViewById(R.id.btnProcederPago)
+        tvTotalPrice = findViewById(R.id.tvTotalLabel)
+
+        carritoItems = intent.getParcelableArrayListExtra("carritoItems")
+        calcularTotal()
+        tvTotalPrice.text = "Total: $totalPrice €"
+
+        btnProcederPago.setOnClickListener {
+            val selectedId = radioGroup.checkedRadioButtonId
+            if (selectedId != -1) {
+                val selectedRadioButton = findViewById<RadioButton>(selectedId)
+                val metodoPago = selectedRadioButton.text.toString()
+                val intent = Intent(this, activity_ticket::class.java)
+                intent.putExtra("userName", userName)
+                intent.putParcelableArrayListExtra("carritoItems", carritoItems)
+                intent.putExtra("totalPrice", totalPrice)
+                intent.putExtra("metodoPago", metodoPago)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Por favor, selecciona un método de pago", Toast.LENGTH_SHORT).show()
+            }
         }
+    }
 
-        // Configura la acción del botón para ir a la pantalla principal.
-        val botonHome = findViewById<ImageView>(R.id.homeButton)
-        botonHome.setOnClickListener {
-            val intent = Intent(this, activity_hallshop::class.java)
-            startActivity(intent)
-        }
-
-        // Configura la acción del botón para ir al carrito.
-        val botonCarrito = findViewById<ImageView>(R.id.cartButton)
-        botonCarrito.setOnClickListener {
-            val intent = Intent(this, activity_carrito::class.java)
-            startActivity(intent)
-        }
-
-        // Configura la acción del botón para ir al perfil del usuario.
-        val botonPerfil = findViewById<ImageView>(R.id.profileButton)
-        botonPerfil.setOnClickListener {
-            val intent = Intent(this, activity_usuario::class.java)
-            startActivity(intent)
+    private fun calcularTotal() {
+        totalPrice = 0.0
+        carritoItems?.forEach { item ->
+            totalPrice += (item.producto.precio ?: 0.0) * item.cantidad
         }
     }
 }

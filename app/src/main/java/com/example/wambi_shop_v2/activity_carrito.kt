@@ -4,53 +4,104 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
-// Actividad que maneja la vista del carrito de compras.
 class activity_carrito : AppCompatActivity() {
 
-    // Metodo que se ejecuta cuando se crea la actividad.
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var tvTotalPrice: TextView
+    private lateinit var btnConfirmarCompra: Button
+    private lateinit var carritoAdapter: CarritoAdapter
+
+    // Para efectos de simulación, asumimos que el usuario logueado tiene ID 1
+    private val userId = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge() // Habilita un diseño de borde a borde para la actividad.
-        setContentView(R.layout.activity_carrito) // Establece el layout de la actividad.
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_carrito)
 
-        // Ajusta el diseño para que se adapte a las barras del sistema (notificaciones, navegación, etc.).
+        // Ajuste para sistemas con insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Configura la acción del botón para ir a la pantalla principal.
-        val botonHome = findViewById<ImageView>(R.id.homeButton)
-        botonHome.setOnClickListener {
-            val intent = Intent(this, activity_hallshop::class.java)
-            startActivity(intent)
+        // Configuración de navegación
+        findViewById<ImageView>(R.id.homeButton).setOnClickListener {
+            startActivity(Intent(this, activity_hallshop::class.java))
+        }
+        findViewById<ImageView>(R.id.cartButton).setOnClickListener {
+            cargarCarrito() // Refrescar la lista
+        }
+        findViewById<ImageView>(R.id.profileButton).setOnClickListener {
+            startActivity(Intent(this, activity_usuario::class.java))
         }
 
-        // Configura la acción del botón para volver al carrito.
-        val botonCarrito = findViewById<ImageView>(R.id.cartButton)
-        botonCarrito.setOnClickListener {
-            val intent = Intent(this, activity_carrito::class.java)
-            startActivity(intent)
-        }
+        recyclerView = findViewById(R.id.recyclerViewCarrito)
+        tvTotalPrice = findViewById(R.id.tvTotalPrice)
+        btnConfirmarCompra = findViewById(R.id.botonComprar)
 
-        // Configura la acción del botón para ir al perfil del usuario.
-        val botonPerfil = findViewById<ImageView>(R.id.profileButton)
-        botonPerfil.setOnClickListener {
-            val intent = Intent(this, activity_usuario::class.java)
-            startActivity(intent)
-        }
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        carritoAdapter = CarritoAdapter(mutableListOf(), onIncrement = { cartItem ->
+            // Incrementar cantidad en la base de datos
+            Database().addProductoAlCarrito(this, cartItem.producto.id ?: 0, userId, 1)
+            cargarCarrito()
+        }, onDecrement = { cartItem ->
+            if (cartItem.cantidad > 1) {
+                updateCantidadEnCarrito(cartItem.idCarrito, cartItem.cantidad - 1)
+            } else {
+                removeCartItem(cartItem.idCarrito)
+            }
+            cargarCarrito()
+        })
+        recyclerView.adapter = carritoAdapter
 
-        // Configura la acción del botón para confirmar la compra.
-        val botonConfirmar = findViewById<Button>(R.id.botonComprar)
-        botonConfirmar.setOnClickListener {
+        cargarCarrito()
+
+        btnConfirmarCompra.setOnClickListener {
+            val carritoItems = Database().getCarritoItems(this, userId)
             val intent = Intent(this, activity_confirmarcarrito::class.java)
+            intent.putParcelableArrayListExtra("carritoItems", ArrayList(carritoItems))
             startActivity(intent)
         }
+    }
+
+    private fun cargarCarrito() {
+        val carritoItems = Database().getCarritoItems(this, userId)
+        carritoAdapter.updateItems(carritoItems)
+        calcularTotal(carritoItems)
+    }
+
+    private fun calcularTotal(carritoItems: MutableList<CartItem>) {
+        var total = 0.0
+        carritoItems.forEach { item ->
+            total += (item.producto.precio ?: 0.0) * item.cantidad
+        }
+        tvTotalPrice.text = "Total: $total €"
+    }
+
+    private fun updateCantidadEnCarrito(idCarrito: Int, nuevaCantidad: Int) {
+        val dbHelper = Database.DBHelper(this)
+        val db = dbHelper.writableDatabase
+        val contentValues = android.content.ContentValues().apply {
+            put("cantidad", nuevaCantidad)
+        }
+        db.update(Database.TABLE_CARRITO, contentValues, "id_carrito = ?", arrayOf(idCarrito.toString()))
+        db.close()
+    }
+
+    private fun removeCartItem(idCarrito: Int) {
+        val dbHelper = Database.DBHelper(this)
+        val db = dbHelper.writableDatabase
+        db.delete(Database.TABLE_CARRITO, "id_carrito = ?", arrayOf(idCarrito.toString()))
+        db.close()
     }
 }
