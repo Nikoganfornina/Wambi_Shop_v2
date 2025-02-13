@@ -52,6 +52,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Sección de seleccionar todo y botón de pago -->
     <LinearLayout
         android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
