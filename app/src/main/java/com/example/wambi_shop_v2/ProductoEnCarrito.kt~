@@ -1,0 +1,12 @@
+package com.example.wambi_shop_v2
+
+
+data class ProductoEnCarrito(
+    val nombre: String,
+    val precio: Double,
+    var cantidad: Int = 1 // Empieza con 1
+)
+
+fun precioTotal(): Double {
+    return precio * cantidad
+}

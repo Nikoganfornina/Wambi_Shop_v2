@@ -1,5 +1,6 @@
 package com.example.wambi_shop_v2
 
+import Producto
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -11,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 
 // Actividad que maneja la vista del carrito de compras.
 class activity_carrito : AppCompatActivity() {
+
 
     // Metodo que se ejecuta cuando se crea la actividad.
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,4 +55,6 @@ class activity_carrito : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+
 }

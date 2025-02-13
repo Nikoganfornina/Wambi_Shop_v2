@@ -30,6 +30,7 @@ class ProductDetailActivity : AppCompatActivity() {
         val addToCartButton = findViewById<Button>(R.id.btnAgregarCarrito)
 
 
+        val carrito: MutableList<ProductoEnCarrito> = mutableListOf()
 
         val name = producto?.nombre ?: "Unknown"
         val price = producto?.precio ?: 0.0
@@ -49,8 +50,25 @@ class ProductDetailActivity : AppCompatActivity() {
         }
 
         addToCartButton.setOnClickListener {
-            Toast.makeText(this, "$name added to cart", Toast.LENGTH_SHORT).show()
-            // Logic to add the product to the cart
+            // Asegúrate de que 'producto' no sea nulo
+            if (producto != null) {
+                // Busca si el producto ya está en el carrito
+                val productoEnCarrito = carrito.find { it.nombre == producto.nombre }
+
+                // Si el producto ya está en el carrito, incrementa su cantidad
+                if (productoEnCarrito != null) {
+                    productoEnCarrito.cantidad++
+                } else {
+                    // Si no está en el carrito, lo agregamos con cantidad 1
+                    carrito.add(ProductoEnCarrito(producto.nombre ?: "", producto.precio ?: 0.0, 1))
+                }
+
+                // Muestra un mensaje indicando que el producto se ha agregado
+                Toast.makeText(this, "${producto.nombre} agregado al carrito", Toast.LENGTH_SHORT).show()
+            } else {
+                // Si el producto es nulo, muestra un mensaje de error o no haces nada
+                Toast.makeText(this, "Error: Producto no disponible", Toast.LENGTH_SHORT).show()
+            }
         }
 
         val botonHome = findViewById<ImageView>(R.id.homeButton)
